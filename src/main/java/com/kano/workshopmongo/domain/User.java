@@ -3,12 +3,17 @@ package com.kano.workshopmongo.domain;
 import java.io.Serializable;
 import java.util.Objects;
 
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document(collection="User")
 public class User implements Serializable {
 	private static final long serialVersionUID = 1L;
 
+	@Id
 	private String Id;
-	private String Name;
-	private String Email;
+	private String name;
+	private String email;
 
 	public User() {
 	}
@@ -16,33 +21,45 @@ public class User implements Serializable {
 	public User(String id, String name, String email) {
 		super();
 		Id = id;
-		Name = name;
-		Email = email;
+		this.name = name;
+		this.email = email;
 	}
 
 	public String getId() {
 		return Id;
 	}
 
+
+
 	public void setId(String id) {
 		Id = id;
 	}
 
+
+
 	public String getName() {
-		return Name;
+		return name;
 	}
+
+
 
 	public void setName(String name) {
-		Name = name;
+		this.name = name;
 	}
+
+
 
 	public String getEmail() {
-		return Email;
+		return email;
 	}
 
+
+
 	public void setEmail(String email) {
-		Email = email;
+		this.email = email;
 	}
+
+
 
 	@Override
 	public int hashCode() {
